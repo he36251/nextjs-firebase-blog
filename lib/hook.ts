@@ -7,6 +7,8 @@ export function useUserData() {
   const [user] = useAuthState(auth);
   const [username, setUsername] = useState(null);
 
+  console.log(user);
+
   useEffect(() => {
     // turn off realtime subscription
     let unsubscribe;
@@ -16,6 +18,7 @@ export function useUserData() {
 
       unsubscribe = ref.onSnapshot((doc) => {
         setUsername(doc.data()?.username);
+        console.log('setting username...')
       });
     } else {
       setUsername(null);
