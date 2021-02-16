@@ -1,7 +1,11 @@
+import Head from "next/head";
+import Metatags from "../../components/Metatags";
+
 export default function AdminPage() {
     return (
-        <div>
-            Enter
-        </div>
+        <main>
+            <Metatags title="admin page" />
+            <h1>Admin posts</h1>
+        </main>
     );
 }
