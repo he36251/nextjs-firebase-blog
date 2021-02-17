@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { useContext } from "react";
+import toast from "react-hot-toast";
 import { UserContext } from "../lib/context";
+import { auth } from "../lib/firebase";
 
 export default function Navbar() {
   const {user, username} = useContext(UserContext)
@@ -22,6 +24,14 @@ export default function Navbar() {
                 <Link href="/admin">
                   <button className="btn-blue">Write Posts</button>
                 </Link>
+              </li>
+              <li>
+                
+                <button className="btn-blue" onClick={() => {
+                  toast.success('signed out');
+                  auth.signOut();
+                  }}>Sign out</button>
+                
               </li>
               <li>
                 <Link href={`/${username}`}>
