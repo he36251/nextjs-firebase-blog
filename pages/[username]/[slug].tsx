@@ -3,13 +3,14 @@ import { useDocumentData } from "react-firebase-hooks/firestore";
 import React from "react";
 import PostContent from "../../components/PostContent";
 import styles from "../../styles/Post.module.css";
+import { IPost } from "../../interfaces/IPost";
 
 export async function getStaticProps({ params }) {
   const { username, slug } = params;
   const userDoc = await getUserWithUsername(username);
 
-  let post;
-  let path;
+  let post: IPost;
+  let path: string;
 
   if (userDoc) {
     const postRef = userDoc.ref.collection("posts").doc(slug);
@@ -25,6 +26,7 @@ export async function getStaticProps({ params }) {
 }
 
 export async function getStaticPaths() {
+  // Improve my using Admin SDK to select empty docs
   const snapshot = await firestore.collectionGroup("posts").get();
 
   const paths = snapshot.docs.map((doc) => {
@@ -36,6 +38,10 @@ export async function getStaticPaths() {
   });
 
   return {
+    // must be in this format:
+    // paths: [
+    //   { params: { username, slug }}
+    // ],
     paths,
     fallback: "blocking",
   };
