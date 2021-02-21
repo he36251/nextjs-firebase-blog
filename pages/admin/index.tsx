@@ -1,3 +1,5 @@
+import styles from "../../styles/Admin.module.css";
+
 import React, { useContext, useState } from "react";
 import { useCollection } from "react-firebase-hooks/firestore";
 import toast from "react-hot-toast";
@@ -8,18 +10,23 @@ import { UserContext } from "../../lib/context";
 import { auth, firestore, serverTimestamp } from "../../lib/firebase";
 import kebabCase from "lodash.kebabcase";
 import { useRouter } from "next/router";
-import styles from "../../styles/Admin.module.css";
+import { Breadcrumbs } from "nextjs-breadcrumbs";
 
 export default function AdminPage() {
+  const breadcrumbs = Breadcrumbs();
+
   return (
+    <>
+    <div className="breadcrumb-container">{breadcrumbs}</div>
+
     <main>
       <Metatags title="admin page" />
-      <h1>Admin posts</h1>
       <AuthCheck>
         <PostList />
         <CreateNewPost />
       </AuthCheck>
     </main>
+    </>
   );
 }
 

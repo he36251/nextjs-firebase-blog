@@ -4,19 +4,26 @@ import AuthCheck from "../../components/AuthCheck";
 import { auth, firestore, serverTimestamp } from "../../lib/firebase";
 import { useDocumentData } from "react-firebase-hooks/firestore";
 
-import ImageUploader from '../../components/ImageUploader';
+import ImageUploader from "../../components/ImageUploader";
 import styles from "../../styles/Admin.module.css";
 import toast from "react-hot-toast";
 import { useForm } from "react-hook-form";
 import Link from "next/link";
 import ReactMarkdown from "react-markdown";
 import { IPost } from "../../interfaces/IPost";
+import { Breadcrumbs } from "nextjs-breadcrumbs";
 
 export default function AdminPostEdit(props) {
+  const breadcrumbs = Breadcrumbs();
+
   return (
-    <AuthCheck>
-      <PostManager />
-    </AuthCheck>
+    <>
+      <div className="breadcrumb-container">{breadcrumbs}</div>
+
+      <AuthCheck>
+        <PostManager />
+      </AuthCheck>
+    </>
   );
 }
 

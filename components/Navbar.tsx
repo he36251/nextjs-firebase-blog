@@ -22,7 +22,7 @@ export default function Navbar() {
             <>
               <li>
                 <Link href="/admin">
-                  <button className="btn-blue">Write Posts</button>
+                  <button className="btn-blue">Manage posts</button>
                 </Link>
               </li>
               <li>
