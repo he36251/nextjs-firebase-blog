@@ -4,6 +4,9 @@ import React from "react";
 import PostContent from "../../components/PostContent";
 import styles from "../../styles/Post.module.css";
 import { IPost } from "../../interfaces/IPost";
+import AuthCheck from "../../components/AuthCheck";
+import HeartButton from "../../components/HeartButton";
+import Link from "next/link";
 
 export async function getStaticProps({ params }) {
   const { username, slug } = params;
@@ -63,6 +66,14 @@ export default function Post(props) {
         <p>
           <strong>{post.heartCount || 0} 🤍</strong>
         </p>
+
+        <AuthCheck fallback={
+          <Link href="/enter">
+            <button>Sign up</button>
+          </Link>
+        }>
+          <HeartButton postRef={postRef} />
+        </AuthCheck>
       </aside>
     </main>
   );
