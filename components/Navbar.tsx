@@ -11,7 +11,7 @@ export default function Navbar() {
     <div>
       <nav className="navbar">
         <ul>
-          <li>
+          <li className="nav-item-home">
             <Link href="/">
               <button className="btn-logo">HOME</button>
             </Link>
@@ -33,7 +33,7 @@ export default function Navbar() {
                   }}>Sign out</button>
                 
               </li>
-              <li>
+              <li className="nav-item-profile">
                 <Link href={`/${username}`}>
                   <img src={user?.photoURL} />
                 </Link>
