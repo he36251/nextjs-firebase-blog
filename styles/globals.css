@@ -159,11 +159,12 @@ button.btn-google {
 }
 
 button.btn-logo {
-  background-color: var(--color-text);
-  color: white;
+  background-color: var(--color-white);
+  color: var(--color-text);
   text-transform: uppercase;
   font-size: 1.5rem;
   padding: 0.5rem 1rem;
+  border: var(--color-text) solid 2px;
 }
 
 /* Cards */
