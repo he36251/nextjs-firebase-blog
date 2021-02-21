@@ -5,7 +5,7 @@ import { auth, firestore, googleAuthProvider } from "../lib/firebase";
 import debounce from "lodash.debounce";
 import { useRouter } from "next/router";
 
-export default function Enter(props) {
+export default function Login(props) {
   const { user, username } = useContext(UserContext);
 
   return (

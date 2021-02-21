@@ -43,7 +43,7 @@ export default function Navbar() {
 
           {/* user is not signed OR has not created username */}
           {!username && (
-            <Link href="/enter">
+            <Link href="/login">
               <button className="btn-blue">Log in</button>
             </Link>
           )}
