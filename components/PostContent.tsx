@@ -4,8 +4,8 @@ import ReactMarkdown from "react-markdown";
 export default function PostContent({ post }) {
   const createdAt =
     typeof post?.createdAt === "number"
-      ? new Date(post.createdAt)
-      : post.createdAt.toDate();
+      ? new Date(post?.createdAt)
+      : post?.createdAt.toDate();
 
   return (
     <div className="card">

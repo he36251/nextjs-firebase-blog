@@ -78,11 +78,10 @@ function CreateNewPost() {
       uid,
       username,
       published: false,
-      content: "Empty content",
+      content: "",
       createdAt: serverTimestamp(),
       updatedAt: serverTimestamp(),
       heartCount: 0,
-      randArray: [1, 2, 3],
     };
 
     await ref.set(data);
