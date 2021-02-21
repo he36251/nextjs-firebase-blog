@@ -320,10 +320,14 @@ input[type="file"] {
 
 .breadcrumb li
 {
-  padding: 0 0.1rem;
+  padding: 0 0.15rem;
   list-style: none;
+  font-size: 14px;
 }
 
 .breadcrumb li ::before {
-  content: '/';
+  content: '>';
+  color: var(--color-gray);
+  padding: 2px;
+  text-decoration: none;
 }
