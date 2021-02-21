@@ -12,9 +12,11 @@ export default function ImageUploader() {
     const file = Array.from(e.target.files)[0] as File;
     const extension = file.type.split("/")[1];
 
+    console.log(file, extension);
+
     //Create reference to storage bucket location
     const ref = storage.ref(
-      `uploads/${auth.currentUser.uid}/${serverTimestamp}.${extension}`
+      `uploads/${auth.currentUser.uid}/${serverTimestamp()}.${extension}`
     );
 
     //Start upload
@@ -51,7 +53,7 @@ export default function ImageUploader() {
           <input
             type="file"
             onChange={uploadFile}
-            accept="image/x-png,image/gif,image/jpeg"
+            accept="image/x-png,image/gif,image/jpeg,image/jpg"
           />
         </label>
       )}
