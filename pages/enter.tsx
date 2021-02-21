@@ -28,6 +28,7 @@ function SignInButton() {
     try {
       await auth.signInWithPopup(googleAuthProvider);
     } catch (error) {
+      console.log(error);
       toast.error(error);
     }
   };
