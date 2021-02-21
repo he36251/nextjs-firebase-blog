@@ -17,15 +17,20 @@ export default function AdminPage() {
 
   return (
     <>
-    <div className="breadcrumb-container">{breadcrumbs}</div>
+      <div className="breadcrumb-container">{breadcrumbs}</div>
 
-    <main>
-      <Metatags title="admin page" />
-      <AuthCheck>
-        <PostList />
-        <CreateNewPost />
-      </AuthCheck>
-    </main>
+      <main>
+        <h3>Create your new post</h3>
+        <Metatags title="admin page" />
+
+        <AuthCheck>
+          <CreateNewPost />
+
+          <hr />
+
+          <PostList />
+        </AuthCheck>
+      </main>
     </>
   );
 }
@@ -88,19 +93,21 @@ function CreateNewPost() {
   };
 
   return (
-    <form onSubmit={createPost}>
-      <input
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
-        placeholder="My Awesome Article!"
-        className={styles.input}
-      />
-      <p>
-        <strong>Slug:</strong> {slug}
-      </p>
-      <button type="submit" disabled={!isValid} className="btn-green">
-        Create New Post
-      </button>
-    </form>
+    <div className={styles.createPost}>
+      <form onSubmit={createPost}>
+        <input
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+          placeholder="Title of your new post"
+          className={styles.input}
+        />
+        <p>
+          <strong>Slug:</strong> {slug}
+        </p>
+        <button type="submit" disabled={!isValid} className="btn-green">
+          Create New Post
+        </button>
+      </form>
+    </div>
   );
 }

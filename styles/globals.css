@@ -65,6 +65,10 @@ code {
   overflow-x: scroll;
 }
 
+.text-center {
+  text-align: center;
+}
+
 /* Navbar */
 
 .navbar {
@@ -153,12 +157,12 @@ button.btn-green {
   color: white;
 }
 
-button.btn-google {
+button.btn-login-icon {
   background-color: white;
   color: var(--color-text);
 }
 
-.btn-google img {
+.btn-login-icon img {
   width: 30px;
   margin-right: 10px;
 }

@@ -6,7 +6,7 @@ export default function Heart({ postRef }) {
   const [heartDoc] = useDocument(heartRef);
 
   //Create user-to-post relationship
-  const addHeart = async () => {
+  const likePost = async () => {
     const uid = auth.currentUser.uid;
 
     //Firestore transaction
@@ -18,7 +18,7 @@ export default function Heart({ postRef }) {
     await batch.commit();
   };
 
-  const removeHeart = async () => {
+  const unlikePost = async () => {
     const batch = firestore.batch();
 
     batch.update(postRef, { heartCount: increament(-1) });
@@ -28,8 +28,8 @@ export default function Heart({ postRef }) {
   };
 
   return heartDoc?.exists ? (
-    <button onClick={removeHeart}>💔 Unheart</button>
+    <button onClick={unlikePost}>😢 Unlike</button>
   ) : (
-    <button onClick={addHeart}>💗 Heart</button>
+    <button onClick={likePost}>👍 Like</button>
   );
 }

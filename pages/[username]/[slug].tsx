@@ -5,7 +5,7 @@ import React from "react";
 import PostContent from "../../components/PostContent";
 import { IPost } from "../../interfaces/IPost";
 import AuthCheck from "../../components/AuthCheck";
-import HeartButton from "../../components/HeartButton";
+import HeartButton from "../../components/LikeButton";
 import Link from "next/link";
 import { Breadcrumbs } from "nextjs-breadcrumbs";
 

@@ -17,14 +17,19 @@ if (!firebase.apps.length) {
   firebase.initializeApp(firebaseConfig);
 }
 
+//Auth
 export const auth = firebase.auth();
 export const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
+export const facebookAuthProvider = new firebase.auth.FacebookAuthProvider();
+export const emailAuthProvider = new firebase.auth.EmailAuthProvider();
 
+//Firestore
 export const firestore = firebase.firestore();
 export const fromMillis = firebase.firestore.Timestamp.fromMillis;
 export const serverTimestamp = firebase.firestore.FieldValue.serverTimestamp;
 export const increament = firebase.firestore.FieldValue.increment;
 
+//Firebase storage
 export const storage = firebase.storage();
 export const STATE_CHANGED = firebase.storage.TaskEvent.STATE_CHANGED;
 

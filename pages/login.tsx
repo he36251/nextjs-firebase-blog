@@ -1,7 +1,7 @@
 import { useCallback, useContext, useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { UserContext } from "../lib/context";
-import { auth, firestore, googleAuthProvider } from "../lib/firebase";
+import { auth, emailAuthProvider, facebookAuthProvider, firestore, googleAuthProvider } from "../lib/firebase";
 import debounce from "lodash.debounce";
 import { useRouter } from "next/router";
 
@@ -9,7 +9,7 @@ export default function Login(props) {
   const { user, username } = useContext(UserContext);
 
   return (
-    <main>
+    <main className="text-center">
       {user ? (
         !username ? (
           <UsernameForm />
@@ -36,14 +36,57 @@ function SignInButton() {
 
     } catch (error) {
       console.log(error);
-      toast.error(error);
+
+      handleAccountsWithDifferentProviders(error);
+    }
+  };
+
+  const signInWithFacebook = async () => {
+    try {
+      await auth.signInWithPopup(facebookAuthProvider);
+
+      //Redirect to home
+      router.push('/');
+
+    } catch (error) {
+      console.log(error);
+
+      handleAccountsWithDifferentProviders(error);
+    }
+  };
+
+  const handleAccountsWithDifferentProviders = async (error) => {
+    if (error.code == 'auth/account-exists-with-different-credential') {
+
+      // Lookup existing account’s provider ID.
+      auth.fetchSignInMethodsForEmail(error.email).then((providers) => {
+        if (providers.indexOf(emailAuthProvider.providerId) != -1) {
+          alert('You already have an email account. Please sign in with your email and password.');
+        }
+
+        if (providers.indexOf(googleAuthProvider.providerId) != -1) {
+          alert('You already have an account associated with your Google account. Please sign in with Google.');
+        }
+
+        if (providers.indexOf(facebookAuthProvider.providerId) != -1) {
+          alert('You already have an account associated with your Facebook account. Please sign in with Facebook.');
+        }
+      });
     }
   };
 
   return (
-    <button className="btn-google" onClick={signInWithGoogle}>
+    <>
+    <button className="btn-login-icon" onClick={signInWithGoogle}>
       <img src={"/google-icon.svg"} /> Sign in with Google
     </button>
+
+    <br/>
+
+    <button className="btn-login-icon" onClick={signInWithFacebook}>
+      <img src={"/facebook-icon.png"} /> Sign in with Facebook
+    </button>
+    </>
   );
 }
 
