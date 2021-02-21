@@ -25,6 +25,7 @@ export const fromMillis = firebase.firestore.Timestamp.fromMillis;
 export const serverTimestamp = firebase.firestore.FieldValue.serverTimestamp;
 
 export const storage = firebase.storage();
+export const STATE_CHANGED = firebase.storage.TaskEvent.STATE_CHANGED;
 
 /**
  * Get username from firestore

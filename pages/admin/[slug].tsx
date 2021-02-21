@@ -4,6 +4,7 @@ import AuthCheck from "../../components/AuthCheck";
 import { auth, firestore, serverTimestamp } from "../../lib/firebase";
 import { useDocumentData } from "react-firebase-hooks/firestore";
 
+import ImageUploader from '../../components/ImageUploader';
 import styles from "../../styles/Admin.module.css";
 import toast from "react-hot-toast";
 import { useForm } from "react-hook-form";
@@ -91,6 +92,8 @@ function PostForm({ defaultValues, postRef, preview }) {
       )}
 
       <div className={preview ? styles.hidden : styles.controls}>
+        <ImageUploader />
+
         <textarea
           name="content"
           ref={register({
