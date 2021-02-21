@@ -3,6 +3,7 @@ import toast from "react-hot-toast";
 import { UserContext } from "../lib/context";
 import { auth, firestore, googleAuthProvider } from "../lib/firebase";
 import debounce from "lodash.debounce";
+import { useRouter } from "next/router";
 
 export default function Enter(props) {
   const { user, username } = useContext(UserContext);
@@ -24,9 +25,15 @@ export default function Enter(props) {
 
 //Signin with Google
 function SignInButton() {
+  var router = useRouter();
+  
   const signInWithGoogle = async () => {
     try {
       await auth.signInWithPopup(googleAuthProvider);
+
+      //Redirect to home
+      router.push('/');
+
     } catch (error) {
       console.log(error);
       toast.error(error);
