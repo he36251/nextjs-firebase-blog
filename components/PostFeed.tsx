@@ -10,6 +10,9 @@ function PostItem({post, admin = false}) {
   const wordCount = post?.content.trim().split(/\s+/g).length;
   const minutesToRead = (wordCount / 100 + 1).toFixed(0);
 
+  const postCreatedAt = typeof post?.createdAt === "number" ? 
+    new Date(post?.createdAt).toDateString() : post?.createdAt.toDate().toDateString()
+
     return (
         <div className="card">
           <Link href={`/${post.username}`}>
@@ -26,7 +29,7 @@ function PostItem({post, admin = false}) {
     
           <footer>
             <span>
-              {wordCount} words. {minutesToRead} min read
+              {postCreatedAt}
             </span>
             <span className="push-left">👍 {post.heartCount || 0} Likes</span>
           </footer>
