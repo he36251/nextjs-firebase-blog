@@ -1,11 +1,10 @@
 import { useCallback, useContext, useEffect, useState } from "react";
-import toast from "react-hot-toast";
 import { UserContext } from "../lib/context";
 import { auth, emailAuthProvider, facebookAuthProvider, firestore, googleAuthProvider } from "../lib/firebase";
 import debounce from "lodash.debounce";
 import { useRouter } from "next/router";
 
-export default function Login(props) {
+export default function Login() {
   const { user, username } = useContext(UserContext);
 
   return (

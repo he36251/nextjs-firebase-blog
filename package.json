@@ -9,7 +9,6 @@
   },
   "dependencies": {
     "csstype": "^3.0.6",
-    "dotenv": "^8.2.0",
     "firebase": "^8.2.9",
     "lodash.debounce": "^4.0.8",
     "lodash.kebabcase": "^4.1.1",
