@@ -5,7 +5,7 @@ import { UserContext } from "../lib/context";
 import { auth } from "../lib/firebase";
 
 export default function Navbar() {
-  const {user, username} = useContext(UserContext)
+  const { user, username } = useContext(UserContext);
 
   return (
     <div>
@@ -22,20 +22,25 @@ export default function Navbar() {
             <>
               <li>
                 <Link href="/admin">
-                  <button className="btn-blue">Manage posts</button>
+                  <a className="btn-blue">Manage posts</a>
                 </Link>
               </li>
               <li>
-                
-                <button className="btn-blue" onClick={() => {
-                  toast.success('signed out');
-                  auth.signOut();
-                  }}>Sign out</button>
-                
+                <button
+                  className="btn-blue"
+                  onClick={() => {
+                    toast.success("signed out");
+                    auth.signOut();
+                  }}
+                >
+                  Sign out
+                </button>
               </li>
               <li className="nav-item-profile">
                 <Link href={`/${username}`}>
-                  <img src={user?.photoURL} />
+                  <a>
+                    <img src={user?.photoURL} />
+                  </a>
                 </Link>
               </li>
             </>
@@ -44,7 +49,7 @@ export default function Navbar() {
           {/* user is not signed OR has not created username */}
           {!username && (
             <Link href="/login">
-              <button className="btn-blue">Log in</button>
+              <a className="btn-blue">Log in</a>
             </Link>
           )}
         </ul>
