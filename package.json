@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "csstype": "^3.0.6",
-    "firebase": "^8.2.7",
+    "firebase": "^8.2.9",
     "lodash.debounce": "^4.0.8",
     "lodash.kebabcase": "^4.1.1",
     "next": "10.0.6",
@@ -17,14 +17,14 @@
     "react": "^17.0.1",
     "react-dom": "17.0.1",
     "react-firebase-hooks": "^2.2.0",
-    "react-hook-form": "^6.15.2",
+    "react-hook-form": "^6.15.4",
     "react-hot-toast": "^1.0.2",
     "react-markdown": "^5.0.3"
   },
   "devDependencies": {
     "@types/lodash.debounce": "^4.0.6",
-    "@types/node": "^14.14.27",
+    "@types/node": "^14.14.31",
     "@types/react": "^17.0.2",
-    "typescript": "^4.1.5"
+    "typescript": "^4.2.2"
   }
 }

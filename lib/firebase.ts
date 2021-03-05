@@ -4,13 +4,13 @@ import "firebase/firestore";
 import "firebase/storage";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDTTGhf-XrNrVLiCG5scBdlmd4BgcMlJ8o",
-  authDomain: "nextjs-firebase-blog-318f5.firebaseapp.com",
-  projectId: "nextjs-firebase-blog-318f5",
-  storageBucket: "nextjs-firebase-blog-318f5.appspot.com",
-  messagingSenderId: "904512650332",
-  appId: "1:904512650332:web:6f2dd86b3ec80f9cc43a99",
-  measurementId: "G-XPEJJY16X4",
+  apiKey: "firebase_apikey",
+  authDomain: "firebase_authdomain",
+  projectId: "firebase_projectid",
+  storageBucket: "firebase_storagebucket",
+  messagingSenderId: "firebase_messagingsenderid",
+  appId: "firebase_appid",
+  measurementId: "firebase_measurementid",
 };
 
 if (!firebase.apps.length) {
