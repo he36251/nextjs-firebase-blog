@@ -22,7 +22,9 @@ export default function Navbar() {
             <>
               <li>
                 <Link href="/admin">
-                  <a className="btn-blue">Manage posts</a>
+                  <a>
+                    <button className="btn-blue">Manage posts</button>
+                  </a>
                 </Link>
               </li>
               <li>
@@ -49,7 +51,9 @@ export default function Navbar() {
           {/* user is not signed OR has not created username */}
           {!username && (
             <Link href="/login">
-              <a className="btn-blue">Log in</a>
+              <a>
+                <button className="btn-blue">Log in</button>
+              </a>
             </Link>
           )}
         </ul>
